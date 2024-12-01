@@ -1,0 +1,113 @@
+---
+import { Card, LinkCard } from "@astrojs/starlight/components";
+
+// Dynamic BASE_URL
+const BASE_URL = import.meta.env.BASE_URL;
+
+// Hero data with dynamic links
+const hero = {
+  tagline: "One location for all Thoth Tech documentation!",
+  image: {
+    file: "../../assets/thoth-logo.png",
+  },
+  actions: [
+    {
+      text: "Our Products",
+      link: `${BASE_URL}products/`,
+      icon: "right-arrow",
+      variant: "primary",
+    },
+    {
+      text: "Resources",
+      link: `${BASE_URL}resources/introduction/`,
+      icon: "right-arrow",
+      variant: "secondary",
+    },
+    {
+      text: "FAQ",
+      link: `${BASE_URL}resources/faq/`,
+      icon: "right-arrow",
+      variant: "secondary",
+    },
+  ],
+};
+
+// Page metadata
+const title = "Welcome to Thoth Tech!";
+const description = "Get started building your docs site with Starlight.";
+const template = "splash";
+---
+
+<!-- Main page structure -->
+<!-- Main page structure -->
+<div class={`page-template-${template}`}>
+    <!-- Hero Section -->
+    <header class="hero">
+      <h1>{hero.tagline}</h1>
+      <img src={hero.image.file} alt="Thoth Tech logo" class="hero-logo" />
+      <div class="hero-actions">
+        {hero.actions.map((action) => (
+          <a
+            href={action.link}
+            class={`btn btn-${action.variant}`}
+            title={action.text}
+          >
+            <span>{action.text}</span>
+            {action.icon && <i class={`icon-${action.icon}`}></i>} <!-- Add icons dynamically -->
+          </a>
+        ))}
+      </div>
+    </header>
+  
+  
+    <!-- About Section -->
+    <main>
+      <Card title="Thoth Tech Mission">
+        At Thoth Tech, we create tools designed to enhance educational outcomes by:
+        - Empowering students
+        - Connecting them with tutors
+        - Facilitating personalised learning experiences
+  
+        ### Our Values
+  
+        Our values define how we operate, what we represent, and guide us to be the kind of company and team
+        members we aspire to be. By living up to these values, we aim to:
+  
+        #### Be People-Focused
+  
+        - **Expect the Best:** We hold each other to high standards and provide constructive feedback.
+        - **Encourage Growth:** We support each other in taking initiative to improve both personally and professionally.
+        - **Collaborate with Kindness:** We work together respectfully and with kindness.
+  
+        #### Uphold Sustainable Excellence
+  
+        - **Create Quality Software:** We develop software that is not only functional but also maintainable
+          and enjoyable to use.
+        - **Ensure Sustainability:** We strive to work in a way that is sustainable for our team and the environment.
+  
+        #### Be Inclusive and Supportive
+  
+        - **Celebrate Diversity:** We value diverse perspectives and embrace challenging ideas and conversations.
+        - **Foster Inclusivity:** We support each other and encourage an environment where everyone feels included.
+  
+        By adhering to these principles, we aim to build a collaborative, innovative, and respectful workplace.
+      </Card>
+  
+      <!-- Link Cards -->
+      <LinkCard
+        title="Site Introduction"
+        description="Get to know what this site is all about."
+        href={`${BASE_URL}resources/introduction/`}
+      />
+      <LinkCard
+        title="Onboarding Hub"
+        description="Get started with Thoth Tech!"
+        href={`${BASE_URL}resources/onboarding-hub/thothtech-onboarding-doc/`}
+      />
+      <LinkCard
+        title="Documentation"
+        description="Thoth Tech guides and templates."
+        href={`${BASE_URL}resources/documenting-for-thoth-tech/`}
+      />
+    </main>
+  </div>

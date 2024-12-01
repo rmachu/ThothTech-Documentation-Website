@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/DynamicHeroLayout.astro"
 title: Welcome to Thoth Tech!
 description: Get started building your docs site with Starlight.
 template: splash
@@ -8,11 +9,11 @@ hero:
     file: ../../assets/thoth-logo.png
   actions:
     - text: Our Products
-      link: "/ThothTech-Documentation-Website/products/"
+      link: "${BASE_URL}/products/"
       icon: right-arrow
       variant: primary
     - text: Resources
-      link: "/ThothTech-Documentation-Website/resources/introduction/"
+      link: "${BASE_URL}/resources/introduction/"
       icon: right-arrow
       variant: secondary
     - text: FAQ
@@ -67,7 +68,7 @@ workplace.
 <LinkCard
   title="Site Introduction"
   description="Get to know what this site is all about."
-  href="/ThothTech-Documentation-Website/resources/introduction/"
+  href="${BASE_URL}resources/introduction/'}"
 />
 <LinkCard
   title="Onboarding Hub"

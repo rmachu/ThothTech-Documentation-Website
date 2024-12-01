@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import mdx from '@astrojs/mdx';
 //import starlightLinksValidator from 'starlight-links-validator';
 
 // https://astro.build/config
@@ -9,7 +10,7 @@ export default defineConfig({
     starlight({
       title: "Thoth Tech",
       favicon: "/favicon.svg",
-      // plugins: [
+      // plugins: [,\
       //   starlightLinksValidator({
       //     errorOnRelativeLinks: true,
       //   }),
@@ -99,6 +100,7 @@ export default defineConfig({
         },
       ],
     }),
+    mdx(),
   ],
   // Image processing
   image: {
